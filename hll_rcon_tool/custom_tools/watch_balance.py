@@ -18,7 +18,7 @@ import discord
 from sqlalchemy import create_engine
 
 from rcon.rcon import Rcon
-from rcon.settings import SERVER_INFO
+from rcon.settings import get_server_info
 from rcon.utils import get_server_number
 
 import custom_tools.common_functions as common_functions
@@ -402,7 +402,7 @@ def watch_balance_loop(engine) -> None:
     Calls the function that gathers data,
     then calls the function to analyze it.
     """
-    rcon = Rcon(SERVER_INFO)
+    rcon = Rcon(get_server_info())
 
     try:
         (
